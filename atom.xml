@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://scholargeek.github.io/"/>
-  <updated>2023-01-19T14:39:16.961Z</updated>
+  <updated>2023-01-19T15:43:25.004Z</updated>
   <id>https://scholargeek.github.io/</id>
   
   <author>
@@ -15,6 +15,138 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo博客默认主题的修改与美化16</title>
+    <link href="https://scholargeek.github.io/2019/07/31/Hexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%9616/"/>
+    <id>https://scholargeek.github.io/2019/07/31/Hexo博客默认主题的修改与美化16/</id>
+    <published>2019-07-31T04:06:06.000Z</published>
+    <updated>2023-01-19T15:43:25.004Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="给博客中导航栏添加GitHub快捷链接"><a href="#给博客中导航栏添加GitHub快捷链接" class="headerlink" title="给博客中导航栏添加GitHub快捷链接"></a>给博客中导航栏添加GitHub快捷链接</h1><p>技术博客的内容一般与GitHub有密切联系，给博客导航栏添加快捷按钮十分方便开发者。<br>本文将详述如何给导航栏添加快捷链接。</p><a id="more"></a><ol><li><p>首先打开<a href="https://tholman.com/github-corners/" target="_blank" rel="noopener">https://tholman.com/github-corners/</a> 选择合适的样式并复制源码</p></li><li><p>把复制的源码粘贴到\blog\themes\landscape\layout\ layout.ejs 中的<div class="outer">下方，保存文件即可。</div></p></li></ol><hr><p><strong>版权声明</strong></p><p><img src="/images/cc.png" alt></p><p><a href="https://scholargeek.github.io/">Scholar’s Blog</a> by <a href="https://scholargeek.github.io/About/">scholargeek</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="https://scholargeek.github.io/About/">董仕麟</a>创作并维护的<a href="https://scholargeek.github.io/">scholargeek</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="https://scholargeek.github.io/">Scholar’s Blog</a>博客，版权所有，侵权必究。</p><p>本文永久链接：<a href="https://scholargeek.github.io/2019/07/31/Hexo博客默认主题的修改与美化16/">https://scholargeek.github.io/2019/07/31/Hexo博客默认主题的修改与美化16/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;给博客中导航栏添加GitHub快捷链接&quot;&gt;&lt;a href=&quot;#给博客中导航栏添加GitHub快捷链接&quot; class=&quot;headerlink&quot; title=&quot;给博客中导航栏添加GitHub快捷链接&quot;&gt;&lt;/a&gt;给博客中导航栏添加GitHub快捷链接&lt;/h1&gt;&lt;p&gt;技术博客的内容一般与GitHub有密切联系，给博客导航栏添加快捷按钮十分方便开发者。&lt;br&gt;本文将详述如何给导航栏添加快捷链接。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="教程" scheme="https://scholargeek.github.io/categories/Tutorial/"/>
+    
+    
+      <category term="Hexo" scheme="https://scholargeek.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo博客默认主题的修改与美化15</title>
+    <link href="https://scholargeek.github.io/2019/07/30/Hexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%9615/"/>
+    <id>https://scholargeek.github.io/2019/07/30/Hexo博客默认主题的修改与美化15/</id>
+    <published>2019-07-30T04:06:06.000Z</published>
+    <updated>2023-01-19T15:37:43.382Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="给博客导航栏添加日历"><a href="#给博客导航栏添加日历" class="headerlink" title="给博客导航栏添加日历"></a>给博客导航栏添加日历</h1><p>美观的博客一般都有事件日历，如wordpress日历插件一般，使用户一眼就能看出本月有哪些天推送了博文，方便按时间查找文档。本文将详述Hexo博客侧边栏如何添加日历。</p><a id="more"></a><h2 id="安装日历插件"><a href="#安装日历插件" class="headerlink" title="安装日历插件"></a>安装日历插件</h2><p>使用PowerShell进入博客目录，执行以下命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save git://github.com/howiefh/hexo-generator-calendar.git</span><br></pre></td></tr></table></figure><p>即可安装calendar插件。</p><h2 id="添加JS文件"><a href="#添加JS文件" class="headerlink" title="添加JS文件"></a>添加JS文件</h2><p>此外还需在如下目录添加文件<br>\blog\themes\landscape\layout_widget\calendar.ejs<br>\blog\themes\landscape\source\js\languages.js<br>\blog\themes\landscape\source\js\calendar.js<br>\blog\themes\landscape\source\css_partial\calendar.styl</p><p>在\blog\themes\landscape\source\css_variables.styl中添加如下代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">color-calendar-border = #d1d1d1  color-calendar-post-bg = #007acc  color-calendar-hover-bg = #686868</span><br></pre></td></tr></table></figure><p>在\blog\themes\landscape\layout_partial\after-footer.ejs中添加如下代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.widgets.indexOf(&apos;calendar&apos;) != -1)&#123; %&gt;</span><br><span class="line"> &lt;%- js(&apos;js/languages&apos;) %&gt;</span><br><span class="line"> &lt;%- js(&apos;js/calendar&apos;) %&gt;</span><br><span class="line"></span><br><span class="line"> &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line"> $(function() &#123;</span><br><span class="line"> &lt;% if (typeof theme.calendar.options === &apos;object&apos;) &#123; %&gt;</span><br><span class="line"> $(&apos;#calendar&apos;).aCalendar(&apos;&lt;%= theme.calendar.language || config.language %&gt;&apos;, $.extend(&lt;%- JSON.stringify(theme.calendar.options) %&gt;, &#123;root:&apos;&lt;%= config.root %&gt;&apos;, calendarSingle:&lt;%= config.calendar.single %&gt;, calendarRoot:&apos;&lt;%= config.calendar.root %&gt;&apos;&#125;));</span><br><span class="line"> &lt;% &#125; else &#123; %&gt;</span><br><span class="line"> $(&apos;#calendar&apos;).aCalendar(&apos;&lt;%= theme.calendar.language || config.language %&gt;&apos;, &#123;root:&apos;&lt;%= config.root %&gt;&apos;, calendarSingle:&lt;%= config.calendar.single %&gt;, calendarRoot:&apos;&lt;%= config.calendar.root %&gt;&apos;&#125;);</span><br><span class="line"> &lt;% &#125; %&gt;</span><br><span class="line">  &#125;);</span><br><span class="line"> &lt;/script&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure><h2 id="设置配置文件"><a href="#设置配置文件" class="headerlink" title="设置配置文件"></a>设置配置文件</h2><p>在博客根目录配置文件_config.yml中添加如下代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">calendar:</span><br><span class="line"> single: true</span><br><span class="line"> root: calendar/</span><br></pre></td></tr></table></figure><p>在主题\blog\themes\landscape目录下的配置文件config.yml中添加如下代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">calendar:</span><br><span class="line"> language: zh-CN</span><br><span class="line"> options:</span><br><span class="line"> months: [&apos;January&apos;, &apos;February&apos;, &apos;March&apos;, &apos;April&apos;, &apos;May&apos;, &apos;June&apos;, &apos;July&apos;, &apos;August&apos;, &apos;September&apos;, &apos;October&apos;, &apos;November&apos;, &apos;December&apos;]</span><br><span class="line"> dayOfWeekShort: [&apos;S&apos;, &apos;M&apos;, &apos;T&apos;, &apos;W&apos;, &apos;T&apos;, &apos;F&apos;, &apos;S&apos;]</span><br><span class="line"> dayOfWeek: [&apos;Sunday&apos;, &apos;Monday&apos;, &apos;Tuesday&apos;, &apos;Wednesday&apos;, &apos;Thursday&apos;, &apos;Friday&apos;, &apos;Saturday&apos;]</span><br><span class="line"> postsMonthTip: &apos;Posts published in LMM yyyy&apos;</span><br><span class="line">   titleFormat: &apos;yyyy LMM&apos;</span><br><span class="line"> titleLinkFormat: &apos;archives/yyyy/MM/&apos;</span><br><span class="line"> headArrows: &#123;previous: &apos;&lt;span class=&quot;cal-prev&quot;&gt;&lt;/span&gt;&apos;, next: &apos;&lt;span class=&quot;cal-next&quot;&gt;&lt;/span&gt;&apos;&#125;</span><br><span class="line"> footArrows: &#123;previous: &apos; &apos;, next: &apos; &apos;&#125;</span><br><span class="line"> weekOffset: 0</span><br><span class="line"> calendarSingle: false</span><br><span class="line">  calendarRoot: &apos;calendar/&apos;</span><br><span class="line"> calendarUrl: &apos;calendar.json&apos;</span><br></pre></td></tr></table></figure><p>完成上述设置后，博客的侧边栏中就添加好了日历。</p><hr><p><strong>版权声明</strong></p><p><img src="/images/cc.png" alt></p><p><a href="https://scholargeek.github.io/">Scholar’s Blog</a> by <a href="https://scholargeek.github.io/About/">scholargeek</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="https://scholargeek.github.io/About/">董仕麟</a>创作并维护的<a href="https://scholargeek.github.io/">scholargeek</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="https://scholargeek.github.io/">Scholar’s Blog</a>博客，版权所有，侵权必究。</p><p>本文永久链接：<a href="https://scholargeek.github.io/2019/07/30/Hexo博客默认主题的修改与美化15/">https://scholargeek.github.io/2019/07/30/Hexo博客默认主题的修改与美化15/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;给博客导航栏添加日历&quot;&gt;&lt;a href=&quot;#给博客导航栏添加日历&quot; class=&quot;headerlink&quot; title=&quot;给博客导航栏添加日历&quot;&gt;&lt;/a&gt;给博客导航栏添加日历&lt;/h1&gt;&lt;p&gt;美观的博客一般都有事件日历，如wordpress日历插件一般，使用户一眼就能看出本月有哪些天推送了博文，方便按时间查找文档。本文将详述Hexo博客侧边栏如何添加日历。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="教程" scheme="https://scholargeek.github.io/categories/Tutorial/"/>
+    
+    
+      <category term="Hexo" scheme="https://scholargeek.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo博客默认主题的修改与美化14</title>
+    <link href="https://scholargeek.github.io/2019/07/28/Hexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%9614/"/>
+    <id>https://scholargeek.github.io/2019/07/28/Hexo博客默认主题的修改与美化14/</id>
+    <published>2019-07-28T04:06:06.000Z</published>
+    <updated>2023-01-19T15:18:24.722Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="修改博客中导航栏的颜色与字体"><a href="#修改博客中导航栏的颜色与字体" class="headerlink" title="修改博客中导航栏的颜色与字体"></a>修改博客中导航栏的颜色与字体</h1><p>Hexo博客默认主题landscape中的导航栏字体太小，背景色太单调，如果想设置该怎么办呢？本文将详述导航栏颜色与字体的设置。</p><a id="more"></a><p>打开\blog\themes\landscape\source\css_partial目录下的header.styl 文件，做如下设置：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">#header</span><br><span class="line"></span><br><span class="line"> height: banner-height</span><br><span class="line"></span><br><span class="line"> position: relative</span><br><span class="line"></span><br><span class="line"> border-bottom: 1px solid color-border</span><br><span class="line"></span><br><span class="line"> &amp;:before, &amp;:after</span><br><span class="line"></span><br><span class="line"> content: &quot;&quot;</span><br><span class="line"></span><br><span class="line"> position: absolute</span><br><span class="line"></span><br><span class="line"> left: 0</span><br><span class="line"></span><br><span class="line"> right: 0</span><br><span class="line"></span><br><span class="line"> height: 55px #此处有修改，更改导航栏高度，默认40px</span><br><span class="line"></span><br><span class="line"> &amp;:before</span><br><span class="line"></span><br><span class="line"> top: 0</span><br><span class="line"></span><br><span class="line"> background: linear-gradient(red, transparent)</span><br><span class="line"></span><br><span class="line">#此处有修改，更改导航栏渐变颜色，默认linear-gradient(rgba(0, 0, 0, 0.2), transparent)</span><br><span class="line"></span><br><span class="line">#main-nav</span><br><span class="line"></span><br><span class="line"> float: left</span><br><span class="line"></span><br><span class="line"> font-size: 18px</span><br><span class="line"></span><br><span class="line">#此处有添加，更改导航栏字体的大小，默认font-size=14px</span><br><span class="line"></span><br><span class="line">.nav-icon</span><br><span class="line"></span><br><span class="line"> @extend $nav-link</span><br><span class="line"></span><br><span class="line"> font-family: font-icon</span><br><span class="line"></span><br><span class="line"> text-align: center</span><br><span class="line"></span><br><span class="line"> font-size: 18px #更改导航栏图标的大小，默认font-size=font-size</span><br></pre></td></tr></table></figure><p>按照代码中注释所述按需进行修改即可。</p><hr><p><strong>版权声明</strong></p><p><img src="/images/cc.png" alt></p><p><a href="https://scholargeek.github.io/">Scholar’s Blog</a> by <a href="https://scholargeek.github.io/About/">scholargeek</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="https://scholargeek.github.io/About/">董仕麟</a>创作并维护的<a href="https://scholargeek.github.io/">scholargeek</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="https://scholargeek.github.io/">Scholar’s Blog</a>博客，版权所有，侵权必究。</p><p>本文永久链接：<a href="https://scholargeek.github.io/2019/07/28/Hexo博客默认主题的修改与美化14/">https://scholargeek.github.io/2019/07/28/Hexo博客默认主题的修改与美化14/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;修改博客中导航栏的颜色与字体&quot;&gt;&lt;a href=&quot;#修改博客中导航栏的颜色与字体&quot; class=&quot;headerlink&quot; title=&quot;修改博客中导航栏的颜色与字体&quot;&gt;&lt;/a&gt;修改博客中导航栏的颜色与字体&lt;/h1&gt;&lt;p&gt;Hexo博客默认主题landscape中的导航栏字体太小，背景色太单调，如果想设置该怎么办呢？本文将详述导航栏颜色与字体的设置。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="教程" scheme="https://scholargeek.github.io/categories/Tutorial/"/>
+    
+    
+      <category term="Hexo" scheme="https://scholargeek.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo博客默认主题的修改与美化13</title>
+    <link href="https://scholargeek.github.io/2019/07/27/Hexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%9613/"/>
+    <id>https://scholargeek.github.io/2019/07/27/Hexo博客默认主题的修改与美化13/</id>
+    <published>2019-07-27T08:06:06.000Z</published>
+    <updated>2023-01-19T15:52:48.300Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="给博客添加背景音乐"><a href="#给博客添加背景音乐" class="headerlink" title="给博客添加背景音乐"></a>给博客添加背景音乐</h1><p>一个成熟的博客网站想变的生动是不能没有音乐的，本文将详述如何将背景音乐播放器添加到侧边栏。</p><a id="more"></a><h2 id="获取播放器外链"><a href="#获取播放器外链" class="headerlink" title="获取播放器外链"></a>获取播放器外链</h2><p>打开网页版网易云音乐，选择你准备添加的背景音乐，点击生成外链播放器，前提是要有版权，否则无法生成外链播放器，复制底下的HTML代码。</p><h2 id="新建JS文件"><a href="#新建JS文件" class="headerlink" title="新建JS文件"></a>新建JS文件</h2><p>在\blog\themes\landscape\layout_widget\ 路径下新建music.ejs文件，将复制的代码放入其中，如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;widget-wrap&quot;&gt;</span><br><span class="line"></span><br><span class="line"> &lt;h3 class=&quot;widget-title&quot;&gt;音乐&lt;/h3&gt;</span><br><span class="line"></span><br><span class="line"> &lt;div class=&quot;widget&quot;&gt;</span><br><span class="line"></span><br><span class="line"> &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure><h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>修改主题的配置文件,在\blog\themes\landscape\ 路径下的_config.yml文件中添加标签，如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">widgets:</span><br><span class="line">- music</span><br></pre></td></tr></table></figure><p>完成上述设置即可在右侧菜单栏显示音乐播放器。</p><hr><p><strong>版权声明</strong></p><p><img src="/images/cc.png" alt></p><p><a href="https://scholargeek.github.io/">Scholar’s Blog</a> by <a href="https://scholargeek.github.io/About/">scholargeek</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="https://scholargeek.github.io/About/">董仕麟</a>创作并维护的<a href="https://scholargeek.github.io/">scholargeek</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="https://scholargeek.github.io/">Scholar’s Blog</a>博客，版权所有，侵权必究。</p><p>本文永久链接：<a href="https://scholargeek.github.io/2019/07/27/Hexo博客默认主题的修改与美化13/">https://scholargeek.github.io/2019/07/27/Hexo博客默认主题的修改与美化13/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;给博客添加背景音乐&quot;&gt;&lt;a href=&quot;#给博客添加背景音乐&quot; class=&quot;headerlink&quot; title=&quot;给博客添加背景音乐&quot;&gt;&lt;/a&gt;给博客添加背景音乐&lt;/h1&gt;&lt;p&gt;一个成熟的博客网站想变的生动是不能没有音乐的，本文将详述如何将背景音乐播放器添加到侧边栏。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="教程" scheme="https://scholargeek.github.io/categories/Tutorial/"/>
+    
+    
+      <category term="Hexo" scheme="https://scholargeek.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo博客默认主题的修改与美化12</title>
+    <link href="https://scholargeek.github.io/2019/07/26/Hexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%9612/"/>
+    <id>https://scholargeek.github.io/2019/07/26/Hexo博客默认主题的修改与美化12/</id>
+    <published>2019-07-26T08:06:06.000Z</published>
+    <updated>2023-01-19T15:52:28.331Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="给博客背景添加动态线条效果"><a href="#给博客背景添加动态线条效果" class="headerlink" title="给博客背景添加动态线条效果"></a>给博客背景添加动态线条效果</h1><p>如果想继续美化博客的背景，可以在背景上添加动态线条，本文将表述如何给博客背景添加动态线条。</p><a id="more"></a><p>在 \blog\themes\landscape\layout\layout.ejs 文件中添加如下代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--动态线条背景--&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;</span><br><span class="line"></span><br><span class="line">color=&quot;220,220,220&quot; opacity=&apos;0.7&apos; zIndex=&quot;-2&quot; count=&quot;200&quot; src=&quot;//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><hr><p><strong>版权声明</strong></p><p><img src="/images/cc.png" alt></p><p><a href="https://scholargeek.github.io/">Scholar’s Blog</a> by <a href="https://scholargeek.github.io/About/">scholargeek</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="https://scholargeek.github.io/About/">董仕麟</a>创作并维护的<a href="https://scholargeek.github.io/">scholargeek</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="https://scholargeek.github.io/">Scholar’s Blog</a>博客，版权所有，侵权必究。</p><p>本文永久链接：<a href="https://scholargeek.github.io/2019/07/26/Hexo博客默认主题的修改与美化12/">https://scholargeek.github.io/2019/07/26/Hexo博客默认主题的修改与美化12/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;给博客背景添加动态线条效果&quot;&gt;&lt;a href=&quot;#给博客背景添加动态线条效果&quot; class=&quot;headerlink&quot; title=&quot;给博客背景添加动态线条效果&quot;&gt;&lt;/a&gt;给博客背景添加动态线条效果&lt;/h1&gt;&lt;p&gt;如果想继续美化博客的背景，可以在背景上添加动态线条，本文将表述如何给博客背景添加动态线条。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="教程" scheme="https://scholargeek.github.io/categories/Tutorial/"/>
+    
+    
+      <category term="Hexo" scheme="https://scholargeek.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo博客默认主题的修改与美化11</title>
+    <link href="https://scholargeek.github.io/2019/07/26/Hexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%9611/"/>
+    <id>https://scholargeek.github.io/2019/07/26/Hexo博客默认主题的修改与美化11/</id>
+    <published>2019-07-26T04:06:06.000Z</published>
+    <updated>2023-01-19T14:51:22.076Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="给博客添加点击出现爱心的效果"><a href="#给博客添加点击出现爱心的效果" class="headerlink" title="给博客添加点击出现爱心的效果"></a>给博客添加点击出现爱心的效果</h1><p>本文将详述如何使博客网站在用户点击时出现爱心的效果。</p><a id="more"></a><h2 id="新建JS代码"><a href="#新建JS代码" class="headerlink" title="新建JS代码"></a>新建JS代码</h2><p>在 \blog\themes\landscape\source\js下新建文件 love.js，在 love.js 文件中添加以下代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!function(e,t,a)&#123;function n()&#123;c(&quot;.heart&#123;width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);&#125;.heart:after,.heart:before&#123;content: &apos;&apos;;width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 500%;-moz-border-radius: 50%;position: fixed;&#125;.heart:after&#123;top: -5px;&#125;.heart:before&#123;left: -5px;&#125;&quot;),o(),r()&#125;function r()&#123;for(var e=0;e&lt;d.length;e++)d[e].alpha&lt;=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText=&quot;left:&quot;+d[e].x+&quot;px;top:&quot;+d[e].y+&quot;px;opacity:&quot;+d[e].alpha+&quot;;transform:scale(&quot;+d[e].scale+&quot;,&quot;+d[e].scale+&quot;) rotate(45deg);background:&quot;+d[e].color+&quot;;z-index:99999&quot;);requestAnimationFrame(r)&#125;function o()&#123;var t=&quot;function&quot;==typeof e.onclick&amp;&amp;e.onclick;e.onclick=function(e)&#123;t&amp;&amp;t(),i(e)&#125;&#125;function i(e)&#123;var a=t.createElement(&quot;div&quot;);a.className=&quot;heart&quot;,d.push(&#123;el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()&#125;),t.body.appendChild(a)&#125;function c(e)&#123;var a=t.createElement(&quot;style&quot;);a.type=&quot;text/css&quot;;try&#123;a.appendChild(t.createTextNode(e))&#125;catch(t)&#123;a.styleSheet.cssText=e&#125;t.getElementsByTagName(&quot;head&quot;)[0].appendChild(a)&#125;function s()&#123;return&quot;rgb(&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;)&quot;&#125;var d=[];e.requestAnimationFrame=function()&#123;return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e)&#123;setTimeout(e,1e3/60)&#125;&#125;(),n()&#125;(window,document);</span><br></pre></td></tr></table></figure><h2 id="添加JS代码"><a href="#添加JS代码" class="headerlink" title="添加JS代码"></a>添加JS代码</h2><p>在 \blog\themes\landscape\layout\layout.ejs 文件末尾添加以下代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 页面点击小红心 --&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/js/love.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure><p>完成以上操作后，当我们游览博客点击鼠标时就可以看见爱心的特效了。</p><hr><p><strong>版权声明</strong></p><p><img src="/images/cc.png" alt></p><p><a href="https://scholargeek.github.io/">Scholar’s Blog</a> by <a href="https://scholargeek.github.io/About/">scholargeek</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="https://scholargeek.github.io/About/">董仕麟</a>创作并维护的<a href="https://scholargeek.github.io/">scholargeek</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p><p>本文首发于<a href="https://scholargeek.github.io/">Scholar’s Blog</a>博客，版权所有，侵权必究。</p><p>本文永久链接：<a href="https://scholargeek.github.io/2019/07/26/Hexo博客默认主题的修改与美化11/">https://scholargeek.github.io/2019/07/26/Hexo博客默认主题的修改与美化11/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;给博客添加点击出现爱心的效果&quot;&gt;&lt;a href=&quot;#给博客添加点击出现爱心的效果&quot; class=&quot;headerlink&quot; title=&quot;给博客添加点击出现爱心的效果&quot;&gt;&lt;/a&gt;给博客添加点击出现爱心的效果&lt;/h1&gt;&lt;p&gt;本文将详述如何使博客网站在用户点击时出现爱心的效果。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="教程" scheme="https://scholargeek.github.io/categories/Tutorial/"/>
+    
+    
+      <category term="Hexo" scheme="https://scholargeek.github.io/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo博客默认主题的修改与美化10</title>

@@ -1,6 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo博客默认主题的修改与美化16]]></title>
+    <url>%2F2019%2F07%2F31%2FHexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%9616%2F</url>
+    <content type="text"><![CDATA[给博客中导航栏添加GitHub快捷链接技术博客的内容一般与GitHub有密切联系，给博客导航栏添加快捷按钮十分方便开发者。本文将详述如何给导航栏添加快捷链接。 首先打开https://tholman.com/github-corners/ 选择合适的样式并复制源码 把复制的源码粘贴到\blog\themes\landscape\layout\ layout.ejs 中的下方，保存文件即可。 版权声明 Scholar’s Blog by scholargeek is licensed under a Creative Commons BY-NC-ND 4.0 International License.由董仕麟创作并维护的scholargeek博客采用创作共用保留署名-非商业-禁止演绎4.0国际许可证。 本文首发于Scholar’s Blog博客，版权所有，侵权必究。 本文永久链接：https://scholargeek.github.io/2019/07/31/Hexo博客默认主题的修改与美化16/]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo博客默认主题的修改与美化15]]></title>
+    <url>%2F2019%2F07%2F30%2FHexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%9615%2F</url>
+    <content type="text"><![CDATA[给博客导航栏添加日历美观的博客一般都有事件日历，如wordpress日历插件一般，使用户一眼就能看出本月有哪些天推送了博文，方便按时间查找文档。本文将详述Hexo博客侧边栏如何添加日历。 安装日历插件使用PowerShell进入博客目录，执行以下命令： 1npm install --save git://github.com/howiefh/hexo-generator-calendar.git 即可安装calendar插件。 添加JS文件此外还需在如下目录添加文件\blog\themes\landscape\layout_widget\calendar.ejs\blog\themes\landscape\source\js\languages.js\blog\themes\landscape\source\js\calendar.js\blog\themes\landscape\source\css_partial\calendar.styl 在\blog\themes\landscape\source\css_variables.styl中添加如下代码： 1color-calendar-border = #d1d1d1 color-calendar-post-bg = #007acc color-calendar-hover-bg = #686868 在\blog\themes\landscape\layout_partial\after-footer.ejs中添加如下代码： 1234567891011121314&lt;% if (theme.widgets.indexOf(&apos;calendar&apos;) != -1)&#123; %&gt; &lt;%- js(&apos;js/languages&apos;) %&gt; &lt;%- js(&apos;js/calendar&apos;) %&gt; &lt;script type=&quot;text/javascript&quot;&gt; $(function() &#123; &lt;% if (typeof theme.calendar.options === &apos;object&apos;) &#123; %&gt; $(&apos;#calendar&apos;).aCalendar(&apos;&lt;%= theme.calendar.language || config.language %&gt;&apos;, $.extend(&lt;%- JSON.stringify(theme.calendar.options) %&gt;, &#123;root:&apos;&lt;%= config.root %&gt;&apos;, calendarSingle:&lt;%= config.calendar.single %&gt;, calendarRoot:&apos;&lt;%= config.calendar.root %&gt;&apos;&#125;)); &lt;% &#125; else &#123; %&gt; $(&apos;#calendar&apos;).aCalendar(&apos;&lt;%= theme.calendar.language || config.language %&gt;&apos;, &#123;root:&apos;&lt;%= config.root %&gt;&apos;, calendarSingle:&lt;%= config.calendar.single %&gt;, calendarRoot:&apos;&lt;%= config.calendar.root %&gt;&apos;&#125;); &lt;% &#125; %&gt; &#125;); &lt;/script&gt;&lt;% &#125; %&gt; 设置配置文件在博客根目录配置文件_config.yml中添加如下代码： 123calendar: single: true root: calendar/ 在主题\blog\themes\landscape目录下的配置文件config.yml中添加如下代码： 123456789101112131415calendar: language: zh-CN options: months: [&apos;January&apos;, &apos;February&apos;, &apos;March&apos;, &apos;April&apos;, &apos;May&apos;, &apos;June&apos;, &apos;July&apos;, &apos;August&apos;, &apos;September&apos;, &apos;October&apos;, &apos;November&apos;, &apos;December&apos;] dayOfWeekShort: [&apos;S&apos;, &apos;M&apos;, &apos;T&apos;, &apos;W&apos;, &apos;T&apos;, &apos;F&apos;, &apos;S&apos;] dayOfWeek: [&apos;Sunday&apos;, &apos;Monday&apos;, &apos;Tuesday&apos;, &apos;Wednesday&apos;, &apos;Thursday&apos;, &apos;Friday&apos;, &apos;Saturday&apos;] postsMonthTip: &apos;Posts published in LMM yyyy&apos; titleFormat: &apos;yyyy LMM&apos; titleLinkFormat: &apos;archives/yyyy/MM/&apos; headArrows: &#123;previous: &apos;&lt;span class=&quot;cal-prev&quot;&gt;&lt;/span&gt;&apos;, next: &apos;&lt;span class=&quot;cal-next&quot;&gt;&lt;/span&gt;&apos;&#125; footArrows: &#123;previous: &apos; &apos;, next: &apos; &apos;&#125; weekOffset: 0 calendarSingle: false calendarRoot: &apos;calendar/&apos; calendarUrl: &apos;calendar.json&apos; 完成上述设置后，博客的侧边栏中就添加好了日历。 版权声明 Scholar’s Blog by scholargeek is licensed under a Creative Commons BY-NC-ND 4.0 International License.由董仕麟创作并维护的scholargeek博客采用创作共用保留署名-非商业-禁止演绎4.0国际许可证。 本文首发于Scholar’s Blog博客，版权所有，侵权必究。 本文永久链接：https://scholargeek.github.io/2019/07/30/Hexo博客默认主题的修改与美化15/]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo博客默认主题的修改与美化14]]></title>
+    <url>%2F2019%2F07%2F28%2FHexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%9614%2F</url>
+    <content type="text"><![CDATA[修改博客中导航栏的颜色与字体Hexo博客默认主题landscape中的导航栏字体太小，背景色太单调，如果想设置该怎么办呢？本文将详述导航栏颜色与字体的设置。 打开\blog\themes\landscape\source\css_partial目录下的header.styl 文件，做如下设置： 123456789101112131415161718192021222324252627282930313233343536373839404142434445#header height: banner-height position: relative border-bottom: 1px solid color-border &amp;:before, &amp;:after content: &quot;&quot; position: absolute left: 0 right: 0 height: 55px #此处有修改，更改导航栏高度，默认40px &amp;:before top: 0 background: linear-gradient(red, transparent)#此处有修改，更改导航栏渐变颜色，默认linear-gradient(rgba(0, 0, 0, 0.2), transparent)#main-nav float: left font-size: 18px#此处有添加，更改导航栏字体的大小，默认font-size=14px.nav-icon @extend $nav-link font-family: font-icon text-align: center font-size: 18px #更改导航栏图标的大小，默认font-size=font-size 按照代码中注释所述按需进行修改即可。 版权声明 Scholar’s Blog by scholargeek is licensed under a Creative Commons BY-NC-ND 4.0 International License.由董仕麟创作并维护的scholargeek博客采用创作共用保留署名-非商业-禁止演绎4.0国际许可证。 本文首发于Scholar’s Blog博客，版权所有，侵权必究。 本文永久链接：https://scholargeek.github.io/2019/07/28/Hexo博客默认主题的修改与美化14/]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo博客默认主题的修改与美化13]]></title>
+    <url>%2F2019%2F07%2F27%2FHexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%9613%2F</url>
+    <content type="text"><![CDATA[给博客添加背景音乐一个成熟的博客网站想变的生动是不能没有音乐的，本文将详述如何将背景音乐播放器添加到侧边栏。 获取播放器外链打开网页版网易云音乐，选择你准备添加的背景音乐，点击生成外链播放器，前提是要有版权，否则无法生成外链播放器，复制底下的HTML代码。 新建JS文件在\blog\themes\landscape\layout_widget\ 路径下新建music.ejs文件，将复制的代码放入其中，如下： 123456789&lt;div class=&quot;widget-wrap&quot;&gt; &lt;h3 class=&quot;widget-title&quot;&gt;音乐&lt;/h3&gt; &lt;div class=&quot;widget&quot;&gt; &lt;/div&gt;&lt;/div&gt; 配置文件修改主题的配置文件,在\blog\themes\landscape\ 路径下的_config.yml文件中添加标签，如下： 12widgets:- music 完成上述设置即可在右侧菜单栏显示音乐播放器。 版权声明 Scholar’s Blog by scholargeek is licensed under a Creative Commons BY-NC-ND 4.0 International License.由董仕麟创作并维护的scholargeek博客采用创作共用保留署名-非商业-禁止演绎4.0国际许可证。 本文首发于Scholar’s Blog博客，版权所有，侵权必究。 本文永久链接：https://scholargeek.github.io/2019/07/27/Hexo博客默认主题的修改与美化13/]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo博客默认主题的修改与美化12]]></title>
+    <url>%2F2019%2F07%2F26%2FHexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%9612%2F</url>
+    <content type="text"><![CDATA[给博客背景添加动态线条效果如果想继续美化博客的背景，可以在背景上添加动态线条，本文将表述如何给博客背景添加动态线条。 在 \blog\themes\landscape\layout\layout.ejs 文件中添加如下代码： 1234567&lt;!--动态线条背景--&gt;&lt;script type=&quot;text/javascript&quot;color=&quot;220,220,220&quot; opacity=&apos;0.7&apos; zIndex=&quot;-2&quot; count=&quot;200&quot; src=&quot;//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js&quot;&gt;&lt;/script&gt; 版权声明 Scholar’s Blog by scholargeek is licensed under a Creative Commons BY-NC-ND 4.0 International License.由董仕麟创作并维护的scholargeek博客采用创作共用保留署名-非商业-禁止演绎4.0国际许可证。 本文首发于Scholar’s Blog博客，版权所有，侵权必究。 本文永久链接：https://scholargeek.github.io/2019/07/26/Hexo博客默认主题的修改与美化12/]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo博客默认主题的修改与美化11]]></title>
+    <url>%2F2019%2F07%2F26%2FHexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%9611%2F</url>
+    <content type="text"><![CDATA[给博客添加点击出现爱心的效果本文将详述如何使博客网站在用户点击时出现爱心的效果。 新建JS代码在 \blog\themes\landscape\source\js下新建文件 love.js，在 love.js 文件中添加以下代码： 1!function(e,t,a)&#123;function n()&#123;c(&quot;.heart&#123;width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);&#125;.heart:after,.heart:before&#123;content: &apos;&apos;;width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 500%;-moz-border-radius: 50%;position: fixed;&#125;.heart:after&#123;top: -5px;&#125;.heart:before&#123;left: -5px;&#125;&quot;),o(),r()&#125;function r()&#123;for(var e=0;e&lt;d.length;e++)d[e].alpha&lt;=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText=&quot;left:&quot;+d[e].x+&quot;px;top:&quot;+d[e].y+&quot;px;opacity:&quot;+d[e].alpha+&quot;;transform:scale(&quot;+d[e].scale+&quot;,&quot;+d[e].scale+&quot;) rotate(45deg);background:&quot;+d[e].color+&quot;;z-index:99999&quot;);requestAnimationFrame(r)&#125;function o()&#123;var t=&quot;function&quot;==typeof e.onclick&amp;&amp;e.onclick;e.onclick=function(e)&#123;t&amp;&amp;t(),i(e)&#125;&#125;function i(e)&#123;var a=t.createElement(&quot;div&quot;);a.className=&quot;heart&quot;,d.push(&#123;el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()&#125;),t.body.appendChild(a)&#125;function c(e)&#123;var a=t.createElement(&quot;style&quot;);a.type=&quot;text/css&quot;;try&#123;a.appendChild(t.createTextNode(e))&#125;catch(t)&#123;a.styleSheet.cssText=e&#125;t.getElementsByTagName(&quot;head&quot;)[0].appendChild(a)&#125;function s()&#123;return&quot;rgb(&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;)&quot;&#125;var d=[];e.requestAnimationFrame=function()&#123;return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e)&#123;setTimeout(e,1e3/60)&#125;&#125;(),n()&#125;(window,document); 添加JS代码在 \blog\themes\landscape\layout\layout.ejs 文件末尾添加以下代码： 12&lt;!-- 页面点击小红心 --&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/love.js&quot;&gt;&lt;/script&gt; 完成以上操作后，当我们游览博客点击鼠标时就可以看见爱心的特效了。 版权声明 Scholar’s Blog by scholargeek is licensed under a Creative Commons BY-NC-ND 4.0 International License.由董仕麟创作并维护的scholargeek博客采用创作共用保留署名-非商业-禁止演绎4.0国际许可证。 本文首发于Scholar’s Blog博客，版权所有，侵权必究。 本文永久链接：https://scholargeek.github.io/2019/07/26/Hexo博客默认主题的修改与美化11/]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo博客默认主题的修改与美化10]]></title>
     <url>%2F2019%2F07%2F24%2FHexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%9610%2F</url>
     <content type="text"><![CDATA[给HEXO博客添加 Live2d小人Live2D是一种应用于电子游戏的绘图渲染技术，通过一系列的连续图像和人物建模来生成一种类似三维模型的二维图像，缺点是Live 2D人物无法大幅度转身，开发商正设法让该技术可显示360度图像。添加Live2D人物模型到网页中使得页面更加生动有趣，本文将详述如何将Live2d小人添加到Hexo博客中。 安装live2d模块在博客已搭建好之后，使用PowerShell进入博客目录。使用命令 1npm install --save hexo-helper-live2d 安装hexo-helper-live2d模块,以便使用。 添加配置文件在根目录下的_config.yml添加配置，内容如下： 1234567891011121314151617181920live2d: enable: true # 是否启动 scriptFrom: local # 默认 pluginRootPath: live2dw/ # 插件在站点上的根目录(相对路径) pluginJsPath: lib/ # 脚本文件相对与插件根目录路径 pluginModelPath: assets/ # 模型文件相对与插件根目录路径 tagMode: false # 标签模式, 是否仅替换 live2d tag标签而非插入到所有页面中 debug: false # 调试, 是否在控制台输出日志 model: use: live2d-widget ## 模型文件 display: position: right # 定位方向 left right top bottom width: 150 # 小人宽度 height: 300 # 小人高度 hOffset: -15 # 向 偏移 vOffset: -15 # 像 偏移 mobile: show: true # 手机端是否显示 react: opacity: 0.7 # 模型透明度 选择模型可选择的模型如下表：| 模型图片| 命令 | live2d-widget-model-chitose live2d-widget-model-epsilon2_1 live2d-widget-model-gf live2d-widget-model-haru/01 live2d-widget-model-haruto live2d-widget-model-hibiki live2d-widget-model-hijiki live2d-widget-model-izumi live2d-widget-model-koharu live2d-widget-model-miku live2d-widget-model-ni-j live2d-widget-model-nico live2d-widget-model-nietzsche live2d-widget-model-nipsilon live2d-widget-model-nito live2d-widget-model-shizuku live2d-widget-model-tororo live2d-widget-model-tsumiki 下载模型并加载选择合适的模型后，在PowerShell中使用命令 1npm install --save live2d-widget-model-xxx 下载模型,如模型chitose即在PowerShell中输入 1npm install –save live2d-widget-model-chitose 即在\blog\node_modules\ 目录下下载好live2d-widget-model-chitose文件,在根目录下新建live2d_models的文件夹并将下载的模型复制到该文件夹下。 配置文件最后编辑配置文件，打开根目录下的_config.yml，在 12model:use: live2d-widget ## 模型文件 中，修改use:后面的模型文件名称为live2d-widget-model-chitose ,保存即可。 使用 Hexo clean清除游览器缓存，再使用 Hexo g生成网页，最后用 Hexo d 部署，打开网页后就有个小人在屏幕的右下角看你了。 版权声明 Scholar’s Blog by scholargeek is licensed under a Creative Commons BY-NC-ND 4.0 International License.由董仕麟创作并维护的scholargeek博客采用创作共用保留署名-非商业-禁止演绎4.0国际许可证。 本文首发于Scholar’s Blog博客，版权所有，侵权必究。 本文永久链接：https://scholargeek.github.io/2019/07/24/Hexo博客默认主题的修改与美化10/]]></content>
