@@ -1,12 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo博客默认主题的修改与美化10]]></title>
+    <url>%2F2019%2F07%2F24%2FHexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%9610%2F</url>
+    <content type="text"><![CDATA[给HEXO博客添加 Live2d小人Live2D是一种应用于电子游戏的绘图渲染技术，通过一系列的连续图像和人物建模来生成一种类似三维模型的二维图像，缺点是Live 2D人物无法大幅度转身，开发商正设法让该技术可显示360度图像。添加Live2D人物模型到网页中使得页面更加生动有趣，本文将详述如何将Live2d小人添加到Hexo博客中。 安装live2d模块在博客已搭建好之后，使用PowerShell进入博客目录。使用命令 1npm install --save hexo-helper-live2d 安装hexo-helper-live2d模块,以便使用。 添加配置文件在根目录下的_config.yml添加配置，内容如下： 1234567891011121314151617181920live2d: enable: true # 是否启动 scriptFrom: local # 默认 pluginRootPath: live2dw/ # 插件在站点上的根目录(相对路径) pluginJsPath: lib/ # 脚本文件相对与插件根目录路径 pluginModelPath: assets/ # 模型文件相对与插件根目录路径 tagMode: false # 标签模式, 是否仅替换 live2d tag标签而非插入到所有页面中 debug: false # 调试, 是否在控制台输出日志 model: use: live2d-widget ## 模型文件 display: position: right # 定位方向 left right top bottom width: 150 # 小人宽度 height: 300 # 小人高度 hOffset: -15 # 向 偏移 vOffset: -15 # 像 偏移 mobile: show: true # 手机端是否显示 react: opacity: 0.7 # 模型透明度 选择模型可选择的模型如下表：| 模型图片| 命令 | live2d-widget-model-chitose live2d-widget-model-epsilon2_1 live2d-widget-model-gf live2d-widget-model-haru/01 live2d-widget-model-haruto live2d-widget-model-hibiki live2d-widget-model-hijiki live2d-widget-model-izumi live2d-widget-model-koharu live2d-widget-model-miku live2d-widget-model-ni-j live2d-widget-model-nico live2d-widget-model-nietzsche live2d-widget-model-nipsilon live2d-widget-model-nito live2d-widget-model-shizuku live2d-widget-model-tororo live2d-widget-model-tsumiki 下载模型并加载选择合适的模型后，在PowerShell中使用命令 1npm install --save live2d-widget-model-xxx 下载模型,如模型chitose即在PowerShell中输入 1npm install –save live2d-widget-model-chitose 即在\blog\node_modules\ 目录下下载好live2d-widget-model-chitose文件,在根目录下新建live2d_models的文件夹并将下载的模型复制到该文件夹下。 配置文件最后编辑配置文件，打开根目录下的_config.yml，在 12model:use: live2d-widget ## 模型文件 中，修改use:后面的模型文件名称为live2d-widget-model-chitose ,保存即可。 使用 Hexo clean清除游览器缓存，再使用 Hexo g生成网页，最后用 Hexo d 部署，打开网页后就有个小人在屏幕的右下角看你了。 版权声明 Scholar’s Blog by scholargeek is licensed under a Creative Commons BY-NC-ND 4.0 International License.由董仕麟创作并维护的scholargeek博客采用创作共用保留署名-非商业-禁止演绎4.0国际许可证。 本文首发于Scholar’s Blog博客，版权所有，侵权必究。 本文永久链接：https://scholargeek.github.io/2019/07/24/Hexo博客默认主题的修改与美化10/]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo博客默认主题的修改与美化9]]></title>
+    <url>%2F2019%2F07%2F23%2FHexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%969%2F</url>
+    <content type="text"><![CDATA[如何在静态博客首页中只显示摘要信息默认情况下hexo博客的首页显示的是完整的文章，而文章比较长的时候这无疑会带来诸多不遍。如果只显示摘要信息，只要在文章正文里面加入一个这样的占位符即可。注意：这个占位符只能另起一行，不能放在其他行内。即在该占位符之前的为摘要信息，其之后的内容则隐藏了，显示为Read More按钮。 版权声明 Scholar’s Blog by scholargeek is licensed under a Creative Commons BY-NC-ND 4.0 International License.由董仕麟创作并维护的scholargeek博客采用创作共用保留署名-非商业-禁止演绎4.0国际许可证。 本文首发于Scholar’s Blog博客，版权所有，侵权必究。 本文永久链接：https://scholargeek.github.io/2019/07/23/Hexo博客默认主题的修改与美化9/]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo博客默认主题的修改与美化8]]></title>
+    <url>%2F2019%2F07%2F22%2FHexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%968%2F</url>
+    <content type="text"><![CDATA[设置网站的图标FaviconFavicon是_favorites icon_的缩写，亦被称为website icon（网页图标）。本文将详述博客网站如何设置网页图标。 首先选择合适的图片转换为.ico格式，可在http://tool.lu/favicon/ 在线转换格式，当然也可以使用图片编辑工具转换，最后得到favicon.ico图标文件，放入blog\source文件夹内即可。然后编辑主题配置文件blog\themes\landscape_config.yml 添加如下代码： 1favicon: /favicon.ico 即完成了网页图标的添加。 版权声明 Scholar’s Blog by scholargeek is licensed under a Creative Commons BY-NC-ND 4.0 International License.由董仕麟创作并维护的scholargeek博客采用创作共用保留署名-非商业-禁止演绎4.0国际许可证。 本文首发于Scholar’s Blog博客，版权所有，侵权必究。 本文永久链接：https://scholargeek.github.io/2019/07/22/Hexo博客默认主题的修改与美化8/]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo博客默认主题的修改与美化7]]></title>
+    <url>%2F2019%2F07%2F21%2FHexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%967%2F</url>
+    <content type="text"><![CDATA[Hexo博客Landscape主题的字体和JS库的优化本文将详述如何优化Hexo博客默认主题的jQuery库和字体 jQuery库的优化目的：将jQuery替换成百度提供的服务，且在百度的服务暂时不可用时，能够以网站上自带的jQuery作为备份服务。方法：1.修改blog\themes\landscape\layout_partial/after-footer.ejs文件，将17行的 1&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js&quot;&gt;&lt;/script&gt; 替换为： 1234567891011&lt;script src=&quot;http://apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot;&gt;//&lt;![CDATA[if (typeof jQuery == &apos;undefined&apos;) &#123; document.write(unescape(&quot;%3Cscript src=&apos;/js/jquery-2.0.3.min.js&apos; type=&apos;text/javascript&apos;%3E%3C/script%3E&quot;));&#125;// ]]&gt;&lt;/script&gt; 2.去jQuery官方下载合适版本的jQuery并将其放到themes/landscape/source/js/目录下，将其命名为jquery-2.0.3.min.js 最后将该文件开头处的 //@ sourceMappingURL=jquery-2.0.3.min.map 这一行代码删去，否则会导致博客无法生成。 字体优化目的：优化博客字体，使页面在多个平台上自动显示较合适的字体。方法：1.修改themes/landscape/source/css/_variables.styl这一文件，将其中第22行 1font-sans = &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif 替换为： 1font-sans = &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;Source Han Sans CN&quot;, &quot;WenQuanYi Micro Hei&quot;, Arial, sans-serif 2.放弃Google的Source Code Pro等宽字体，修改themes/landscape/source/css/_variables.styl文件，将其中第24行 1font-mono = &quot;Source Code Pro&quot;, Consolas, Monaco, Menlo, Consolas, monospace 替换为 font-mono = Consolas, Monaco, Menlo, monospace3.最后删除引用Google字体的代码，编辑文件themes/landscape/layout/_partial/after-footer.ejs，将其中的 1&lt;link href=&quot;http://fonts.googleapis.com/css?family=Source+Code+Pro&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt; 删除即可。 版权声明 Scholar’s Blog by scholargeek is licensed under a Creative Commons BY-NC-ND 4.0 International License.由董仕麟创作并维护的scholargeek博客采用创作共用保留署名-非商业-禁止演绎4.0国际许可证。 本文首发于Scholar’s Blog博客，版权所有，侵权必究。 本文永久链接：https://scholargeek.github.io/2019/07/21/Hexo博客默认主题的修改与美化7/]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo博客默认主题的修改与美化6]]></title>
+    <url>%2F2019%2F07%2F20%2FHexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%966%2F</url>
+    <content type="text"><![CDATA[给博客添加RSS简易信息聚合（也叫聚合内容）是一种基于XML的标准，在互联网上被广泛采用的内容包装和投递协议。RSS(Really Simple Syndication)是一种描述和同步网站内容的格式，是使用最广泛的XML应用。网络用户可以在客户端借助于支持RSS的聚合工具软件，在不打开网站内容页面的情况下阅读支持RSS输出的网站内容。本文将详述如何给博客添加RSS功能。 1.安装Feed插件；使用Powershell进入\blog目录，输入： 1npm install hexo-generator-feed 安装好feed插件，就可以生成RSS xml文件了。 2.在根目录配置文件中添加功能；即在\blog_config.yml文件中添加如下内容： 123456789# Extensionsplugins: hexo-generator-feed#Feed Atomfeed: type: atom path: atom.xml limit: 20 保存文件即可。 显示的效果即博客右上角出现了RSS订阅的按钮。 版权声明 Scholar’s Blog by scholargeek is licensed under a Creative Commons BY-NC-ND 4.0 International License.由董仕麟创作并维护的scholargeek博客采用创作共用保留署名-非商业-禁止演绎4.0国际许可证。 本文首发于Scholar’s Blog博客，版权所有，侵权必究。 本文永久链接：https://scholargeek.github.io/2019/07/20/Hexo博客默认主题的修改与美化6/]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[日志二]]></title>
     <url>%2F2019%2F07%2F19%2F%E5%BF%97%E4%BA%8C%2F</url>
     <content type="text"><![CDATA[若你惘然若失，也可瞥见不羁的空间。若你不堪回首，也可领会自在的神思。若你心无旁骛，也可探寻奋力的结果。虽然你仍未看破，所有迷惑皆等你破解。虽然你会存怀疑，所有可能皆等你实现。我的博客在这里，它是我的另一种存在! If you lose, you can also glimpse the unruly space.If you can’t look back, you can also grasp the mind of your self-confessedness.If you are not happy, you can also explore the results of hard work.Although you still haven’t seen it, all the confusion is waiting for you to crack it.Although you will have doubts, all may be waiting for you to achieve.My blog is here and it’s another existence of mine! http://scholargeek.top/ 版权声明 Scholar’s Blog by scholargeek is licensed under a Creative Commons BY-NC-ND 4.0 International License.由董仕麟创作并维护的scholargeek博客采用创作共用保留署名-非商业-禁止演绎4.0国际许可证。 本文首发于Scholar’s Blog博客，版权所有，侵权必究。 本文永久链接：https://scholargeek.github.io/2019/07/19/志二/]]></content>
       <categories>
         <category>日志</category>
       </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo博客默认主题的修改与美化5]]></title>
+    <url>%2F2019%2F07%2F19%2FHexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%965%2F</url>
+    <content type="text"><![CDATA[使博文自带分享栏许多网站内容都允许分享，本文将详述如何给每篇博文附带分享栏功能。 首先获取百度分享源码，代码如下： 1234567&lt;% if (!index)&#123; %&gt;&lt;div class=&quot;bdsharebuttonbox&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;_bds_more&quot; data-cmd=&quot;more&quot;&gt;分享本文&lt;/a&gt;&lt;a href=&quot;#&quot; class=&quot;bds_tsina&quot; data-cmd=&quot;tsina&quot; title=&quot;分享到新浪微博&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot; class=&quot;bds_renren&quot; data-cmd=&quot;renren&quot; title=&quot;分享到人人网&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot; class=&quot;bds_douban&quot; data-cmd=&quot;douban&quot; title=&quot;分享到豆瓣网&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot; class=&quot;bds_qzone&quot; data-cmd=&quot;qzone&quot; title=&quot;分享到QQ空间&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot; class=&quot;bds_fbook&quot; data-cmd=&quot;fbook&quot; title=&quot;分享到Facebook&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot; class=&quot;bds_twi&quot; data-cmd=&quot;twi&quot; title=&quot;分享到Twitter&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot; class=&quot;bds_mail&quot; data-cmd=&quot;mail&quot; title=&quot;分享到邮件分享&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot; class=&quot;bds_print&quot; data-cmd=&quot;print&quot; title=&quot;分享到打印&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#&quot; class=&quot;bds_copy&quot; data-cmd=&quot;copy&quot; title=&quot;分享到复制网址&quot;&gt;&lt;/a&gt;&lt;a class=&quot;bds_count&quot; data-cmd=&quot;count&quot;&gt;&lt;/a&gt;&lt;/div&gt;&lt;script&gt;window._bd_share_config=&#123;&quot;common&quot;:&#123;&quot;bdSnsKey&quot;:&#123;&#125;,&quot;bdText&quot;:&quot;&quot;,&quot;bdMini&quot;:&quot;2&quot;,&quot;bdMiniList&quot;:false,&quot;bdPic&quot;:&quot;&quot;,&quot;bdStyle&quot;:&quot;2&quot;,&quot;bdSize&quot;:&quot;24&quot;&#125;,&quot;share&quot;:&#123;&#125;&#125;;with(document)0[(getElementsByTagName(&apos;head&apos;)[0]||body).appendChild(createElement(&apos;script&apos;)).src=&apos;http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=&apos;+~(-new Date()/36e5)];&lt;/script&gt;&lt;% &#125; %&gt; 将其保存到blog\themes\landscape\layout_partial\post\baidu-share.ejs中 再到blog\themes\landscape\layout_partial\duoshuo-comment.ejs文件中添加如下代码： 12345678910111213141516&lt;section id=&quot;comments&quot;&gt; &lt;div class=&quot;ds-thread&quot;&gt;&lt;/div&gt;&lt;script type=&quot;text/javascript&quot;&gt;var duoshuoQuery = &#123;short_name:&quot;&lt;%- config.duoshuo_shortname %&gt;&quot;&#125;; (function() &#123; var ds = document.createElement(&apos;script&apos;); ds.type = &apos;text/javascript&apos;;ds.async = true; ds.src = &apos;http://static.duoshuo.com/embed.js&apos;; ds.charset = &apos;UTF-8&apos;; (document.getElementsByTagName(&apos;head&apos;)[0] || document.getElementsByTagName(&apos;body&apos;)[0]).appendChild(ds); &#125;)(); &lt;/script&gt;&lt;/section&gt; 最后编辑主题配置文件，即在blog\themes\landscape_config.yml文件中，添加baidu_share: true即可实现在博文下方附带分享栏。 版权声明 Scholar’s Blog by scholargeek is licensed under a Creative Commons BY-NC-ND 4.0 International License.由董仕麟创作并维护的scholargeek博客采用创作共用保留署名-非商业-禁止演绎4.0国际许可证。 本文首发于Scholar’s Blog博客，版权所有，侵权必究。 本文永久链接：https://scholargeek.github.io/2019/07/19/Hexo博客默认主题的修改与美化5/]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo博客默认主题的修改与美化4]]></title>
+    <url>%2F2019%2F07%2F18%2FHexo%E5%8D%9A%E5%AE%A2%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BF%AE%E6%94%B9%E4%B8%8E%E7%BE%8E%E5%8C%964%2F</url>
+    <content type="text"><![CDATA[自动使每篇文章附带版权信息现今大多数网站的内容都有版权保护，如何给自己的Hexo博客网站的每篇文章添加版权信息呢？本文将详述如何自动为博文添加版权。 在JS中添加自动附带版权的功能在blog\scripts\tail-copyright.js中编辑如下内容： 12345678910111213141516// Add a tail to every post from tail.md// Great for adding copyright infovar fs = require(&apos;fs&apos;);hexo.extend.filter.register(&apos;before_post_render&apos;, function(data)&#123; if(data.copyright == false) return data; var file_content = fs.readFileSync(&apos;tail.md&apos;); if(file_content &amp;&amp; data.content.length &gt; 50) &#123; data.content += file_content; var permalink = &apos;\n本文永久链接：&apos; + data.permalink; data.content += permalink; &#125; return data;&#125;); 脚本功能会自动检查文章的长度，当文章小于50字时自动取消追加版权信息。 编辑版权信息的内容在\blog\tail.md中编辑版权信息，内容如下： 123456-------------**版权声明**![](/images/cc.png)[Scholar's Blog](https://scholargeek.github.io/) by [scholargeek](https://scholargeek.github.io/About/) is licensed under a [Creative Commons BY-NC-ND 4.0 International License](http://creativecommons.org/licenses/by-nc-nd/4.0/). 由[董仕麟](https://scholargeek.github.io/About/)创作并维护的[scholargeek](https://scholargeek.github.io/)博客采用[创作共用保留署名-非商业-禁止演绎4.0国际许可证](http://creativecommons.org/licenses/by-nc-nd/4.0/)。本文首发于[Scholar's Blog](https://scholargeek.github.io/)博客，版权所有，侵权必究。 最后在\source\images夹中添加cc.png图片即可引用版权信息图片。 版权声明 Scholar’s Blog by scholargeek is licensed under a Creative Commons BY-NC-ND 4.0 International License.由董仕麟创作并维护的scholargeek博客采用创作共用保留署名-非商业-禁止演绎4.0国际许可证。 本文首发于Scholar’s Blog博客，版权所有，侵权必究。 本文永久链接：https://scholargeek.github.io/2019/07/18/Hexo博客默认主题的修改与美化4/]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Hexo博客默认主题的修改与美化3]]></title>
