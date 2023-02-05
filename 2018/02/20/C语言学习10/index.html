@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>C语言学习10 | Scholar&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="文件本文将详述C语言中关于文件的相关知识。">
+<meta name="keywords" content="C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言学习10">
+<meta property="og:url" content="https://scholargeek.github.io/2018/02/20/C语言学习10/index.html">
+<meta property="og:site_name" content="Scholar&#39;s Blog">
+<meta property="og:description" content="文件本文将详述C语言中关于文件的相关知识。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://s3.bmp.ovh/imgs/2023/02/04/57986c1e9fc1daa4.png">
+<meta property="og:image" content="https://scholargeek.github.io/images/cc.png">
+<meta property="og:updated_time" content="2023-02-05T15:47:05.915Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C语言学习10">
+<meta name="twitter:description" content="文件本文将详述C语言中关于文件的相关知识。">
+<meta name="twitter:image" content="https://s3.bmp.ovh/imgs/2023/02/04/57986c1e9fc1daa4.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Scholar&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Scholar&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">欢迎来到我的博客！</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/Log">日志</a>
+        
+          <a class="main-nav-link" href="/Learn">学习</a>
+        
+          <a class="main-nav-link" href="/About">关于</a>
+        
+          <a class="main-nav-link" href="/archives">档案</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/s" method="get" accept-charset="UTF-8" target="_blank" class="search-form"><input type="search" name="q1" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="q6" value="scholargeek.github.io"></form>
+      </div>
+    </div>
+  </div>
+  <script>
+    
+    var d = new Date();
+    var m = d.getMinutes();
+    var num = Math.ceil((m + 1) / (60 / 6));
+    document.getElementById("banner").style.backgroundImage = "url(/css/images/banner" + num + ".jpg)";
+    
+</script>
+</header>
+      <div class="outer">
+	  <a href="https://github.com/scholargeek" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+        <section id="main"><article id="post-C语言学习10" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2018/02/20/C语言学习10/" class="article-date">
+  <time datetime="2018-02-20T04:06:06.000Z" itemprop="datePublished">2018-02-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programming/">编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C语言学习10
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        <!-- Table of Contents -->
+        
+            <div id="toc" class="toc-article">
+              <strong class="toc-title">文章目录</strong>
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#文件"><span class="toc-number">1.</span> <span class="toc-text">文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件类型指针"><span class="toc-number">1.1.</span> <span class="toc-text">文件类型指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件的打开与关闭"><span class="toc-number">1.2.</span> <span class="toc-text">文件的打开与关闭</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#打开文件"><span class="toc-number">1.2.1.</span> <span class="toc-text">打开文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭文件"><span class="toc-number">1.2.2.</span> <span class="toc-text">关闭文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件的读写"><span class="toc-number">1.3.</span> <span class="toc-text">文件的读写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#以字符形式读写文件"><span class="toc-number">1.3.1.</span> <span class="toc-text">以字符形式读写文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以字符串形式读写文件"><span class="toc-number">1.3.2.</span> <span class="toc-text">以字符串形式读写文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以数据块的形式读写文件"><span class="toc-number">1.3.3.</span> <span class="toc-text">以数据块的形式读写文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#格式化读写文件"><span class="toc-number">1.3.4.</span> <span class="toc-text">格式化读写文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#随机读写文件"><span class="toc-number">1.3.5.</span> <span class="toc-text">随机读写文件</span></a></li></ol></li></ol></li></ol>
+            </div>
+        
+
+        <h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1><p>本文将详述C语言中关于文件的相关知识。</p>
+<a id="more"></a>
+
+<p>文件是数据源的一种，主要的作用是保存数据。<br>在操作系统中，为了统一对各种硬件的操作，简化接口，不同的硬件设备也都被看成一个文件。对这些文件的操作，等同于对磁盘上普通文件的操作。列如:<br>●通常把显示器称为标准输出文件，printf就是向这个文件输出数据。<br>●通常把键盘称为标准输入文件，scanf就是从这个文件读取数据。<br><strong>常见输出设备对应的文件:</strong></p>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>硬件设备</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>stdin</td>
+<td>标准输入文件，一般指键盘: scanf() getchar()…</td>
+</tr>
+<tr>
+<td>stdout</td>
+<td>标准输入文件，一般指显示器 print() putchar()等</td>
+</tr>
+<tr>
+<td>stderr</td>
+<td>标准错误文件，一般指显示器;perror()等</td>
+</tr>
+<tr>
+<td>stdprn</td>
+<td>标准打印文件，一般指打印机</td>
+</tr>
+</tbody></table>
+<p>C语言把文件分为ASCII文件和二进制文件。ASCII文件又称文本文件。<br>文件流：指数据在文件和内存之间传递的过程。<br>输入流：指数据从文件复制到内存的过程。<br>输出流：从内存保存到文件的过程。</p>
+<p><img src="https://s3.bmp.ovh/imgs/2023/02/04/57986c1e9fc1daa4.png" alt="文件与内存的关系"></p>
+<p>数据流(Data Stream):指数据在数据源和程序(内存)之间传递的过程。<br>输入流(Input Stream):数据从数据源到(内存)程序的过程。<br>输出流(Output Stream):数据从程序(内存)到数据源的过程。<br>文件输入输出方式也称”存取方式”。C语言中，文件有两种存取方式：顺序存取和直接存取。</p>
+<h2 id="文件类型指针"><a href="#文件类型指针" class="headerlink" title="文件类型指针"></a>文件类型指针</h2><p>可以用结构体类型来定义文件类型的指针变量，一般形式为：<br>    FILE *fp;<br>fp是一个指向FILE结构体类型的指针变量。</p>
+<h2 id="文件的打开与关闭"><a href="#文件的打开与关闭" class="headerlink" title="文件的打开与关闭"></a>文件的打开与关闭</h2><h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><p>1.调用形式:<br>    FILE *fp = fopen(文件名,文件使用方式);<br>●函数返回一个指向FILE类型的指针。<br>●无论哪种使用方式，当打开文件时出现错误，fopen函数都将返回NULL。</p>
+<p>2.常用文件打开方式及说明:<br>【控制读写权限(必须指明)】</p>
+<table>
+<thead>
+<tr>
+<th>打开方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>r</td>
+<td>以”只读”方式打开文件。只允许读取，不允许写入。文件必须存在，否则打开失败。</td>
+</tr>
+<tr>
+<td>w</td>
+<td>以”写入”方式打开文件。如果文件不存在，那么创建一个新文件，如果文件存在，那么清空文件内容(相当于删除源文件，再创建一个新文件。)</td>
+</tr>
+<tr>
+<td>a</td>
+<td>以”追加”方式打开文件。如果文件不存在，那么创建一个新文件；如果文件存在，那么将写入的数据追加到文件末尾(文件原有的内容保留)</td>
+</tr>
+<tr>
+<td>r+</td>
+<td>以读写方式打开文件。既可以读取也可以写入，也就是随意更新文件。文件必须存在，否则打开失败。</td>
+</tr>
+<tr>
+<td>w+</td>
+<td>以”写入/更新”方式打开文件，相当于w和r+叠加的效果。首先建立一个新文件，进行写操作，随后可以从头开始读。如果指定文件已存在，则原有内容会被清空。</td>
+</tr>
+<tr>
+<td>a+</td>
+<td>以”追加/更新”方式打开文件，相当于a和r+叠加的效果。既可以读也可写，也就是随意更新文件。如果文件不存在，那么创建一个新文件；如果文件存在，那么将写入的数据追加到文件末尾。</td>
+</tr>
+</tbody></table>
+<p>【控制读写方式(可省略)】</p>
+<table>
+<thead>
+<tr>
+<th>打开方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>“t”</td>
+<td>文本文件。如果不写，默认为”t”。</td>
+</tr>
+<tr>
+<td>“b”</td>
+<td>二进制文件</td>
+</tr>
+</tbody></table>
+<p>●调用fopen()函数时必须指明读写权限，但是可以不指明读写方式(此时默认为”t”)<br>●读写权限和读写方式可以组合使用，但必须以读写权限开头。<br>●整体来说，文件打开方式由r、w、a、t、b、+等6个字符拼成，各字符含义如下：</p>
+<table>
+<thead>
+<tr>
+<th>r(read)</th>
+<th>w(write)</th>
+<th>a(append)</th>
+<th>t(text)</th>
+<th>b(banary)</th>
+<th>+</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>读</td>
+<td>写</td>
+<td>追加</td>
+<td>文本文件</td>
+<td>二进制文件</td>
+<td>读和写</td>
+</tr>
+</tbody></table>
+<h3 id="关闭文件"><a href="#关闭文件" class="headerlink" title="关闭文件"></a>关闭文件</h3><p>文件一旦使用完毕，应该用fclose()函数把文件关闭，以释放相关资源，避免数据丢失。<br>1.fclose()的用法为:<br>    int fclose(FILE *fp);<br>fp为文件指针，如 fclose(fp);</p>
+<p>2.使用说明:<br>●若对文件的操作方式为”读”方式，则经以上函数调用之后，要使文件指针与文件脱离联系。可以重新分配文件指针去指向其他文件。<br>●若对文件的操作方式为”写”方式，则系统首先把该文件缓冲区中的剩余数据全部输出到文件中，然后使文件指针与文件脱离联系。<br>●在完成了对文件的操作后，应当关闭文件，否则文件缓冲区中剩余数据就会丢失。<br>●当执行了关闭操作后，成功则函数返回0，否则返回非0。</p>
+<h2 id="文件的读写"><a href="#文件的读写" class="headerlink" title="文件的读写"></a>文件的读写</h2><h3 id="以字符形式读写文件"><a href="#以字符形式读写文件" class="headerlink" title="以字符形式读写文件"></a>以字符形式读写文件</h3><p>以字符形式读写文件时，每次可以从文件读取一个字符，或者向文件中写入一个字符。主要使用两个函数，分别是fgetc()和fputc()。<br>◆字符读取函数fgetc():<br>fgetc是 file get char的缩写，意为从指定文件中读取一个字符。<br>一般形式： int fgetc(FILE *fp);<br>fp为文件指针；fgetc()读取成功时返回读取到的字符，读取到文件末尾或读取失败时返回EOF.<br>EOF(End of File)表示文件末尾，是在stdio.h中定义的宏，它的值往往为-1是负数。</p>
+<p>在读取文件时，文件内部由系统设置一个位置指针，用于指向当前读写的位置；在文件打开时总是指向文件中的第一个字节，每次fgetc()使用后该位置指针会向后移动一个字节，所以可以连续使用fgetc()读取多个字符。</p>
+<p>【程序示例】在屏幕上显示<code>D:\\demo.txt</code>文件的内容。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	FILE *fp;</span><br><span class="line">	<span class="keyword">char</span> ch;</span><br><span class="line"><span class="comment">//如果文件不存在，给出提示并退出</span></span><br><span class="line"><span class="keyword">if</span>((fp=fopen(<span class="string">"D:\\demo.txt"</span>,<span class="string">"rt"</span>))==<span class="literal">NULL</span>)&#123;</span><br><span class="line">	<span class="built_in">puts</span>(<span class="string">"Fail to open file!"</span>);</span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//每次读取一个字节，直到读取完毕</span></span><br><span class="line"><span class="keyword">while</span>((ch=fgetc(fp))!=EOF)&#123;</span><br><span class="line">	<span class="built_in">putchar</span>(ch);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">putchar</span>(<span class="string">'\n'</span>);<span class="comment">//输出换行符</span></span><br><span class="line">fclose(fp);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对EOF的说明：EOF本意指文件末尾，但读取文件出错时也会返回EOF。<br>要进一步判断读取状态可借助stdio.h中的feof()和ferror()函数。</p>
+<p>feof()函数：用于判断文件内部指针是否指向末尾，当指向文件末尾时返回非零值，否则返回为0。<br>一般形式：<br>    int feof(FILE *fp);<br>ferror()函数：用于判断文件操作是否出错，当文件操作出错时返回非零值，否则返回为0。<br>一般形式：<br>    int ferror(FILE *fp);<br>◆字符写入函数fputc():<br>fputc 是file output char 的缩写，意为向指定文件写入一个字符。<br>一般形式：<br>    int fputc(int ch,FILE *fp);<br>ch为要写入的字符，fp为文件指针。fputc()写入成功时返回写入的字符，失败时返回EOF,返回值类型为int即可容纳这个值(负数)。<br>　　语句示列：把字符’a’写入fp所指向的文件中<br>    fputc(‘a’,fp);    或    char ch=’a’;  fputc(ch,fp);<br>【程序示例】从键盘输入一行字符，写入文件。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	FILE *fp;</span><br><span class="line">	<span class="keyword">char</span> ch;</span><br><span class="line"><span class="comment">//判断文件是否打开成功</span></span><br><span class="line"><span class="keyword">if</span>(（fp=fopen(<span class="string">"D:\\demo.txt"</span>,<span class="string">"wt+"</span>))==<span class="literal">NULL</span>)&#123;</span><br><span class="line">	<span class="built_in">puts</span>(<span class="string">"Fail to open file!"</span>);</span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"Input a string:\n"</span>);</span><br><span class="line"><span class="comment">//每次从键盘读取一个字符并写入文件</span></span><br><span class="line"><span class="keyword">while</span>((ch=getchar())!=<span class="string">'\n'</span>)&#123;</span><br><span class="line">	fputc(ch,fp);</span><br><span class="line">&#125;</span><br><span class="line">fclose(fp);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>fgetc()和fputc()函数每次只能读写一个字符，速度较慢；实际开发中往往读写字符串或数据块。</p>
+<h3 id="以字符串形式读写文件"><a href="#以字符串形式读写文件" class="headerlink" title="以字符串形式读写文件"></a>以字符串形式读写文件</h3><p>◆读取字符串函数fgets():<br>fgets()函数用来指定文件中读取一个字符串，并保存到字符数组中。<br>一般形式：<br>    char *fgets(char *str,int n,FILE *fp);<br>str为字符数组，n为要读取的字符数目，fp为文件指针。<br>返回值：读取成功时返回字符数组首地址，也即str;读取失败时返回NULL;如果开始读取文件内部指针已指向了末尾，那么读取不到任何文字，也返回NULL。<br>▲注意：读取到的字符串会在末尾自动添加’\0’，n个字符有n+1个长度，遇到换行符会一并读取到字符串。</p>
+<p>【程序示例】一行一行地读取文件</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 100</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">FILE *fp;</span><br><span class="line"><span class="keyword">char</span> str[N+<span class="number">1</span>];</span><br><span class="line"><span class="keyword">if</span>((fp=fopen(<span class="string">"d:\\demo.txt"</span>,<span class="string">"rt"</span>))==<span class="literal">NULL</span>)&#123;</span><br><span class="line">	<span class="built_in">puts</span>(<span class="string">"Fail to open file!"</span>);</span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(fgets(str,N,fp)!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s"</span>,str);</span><br><span class="line">&#125;</span><br><span class="line">fclose(fp);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>◆写字符串函数fputs():<br>fputs()函数用来向指定的文件写入一个字符串。<br>一般形式为：<br>    int fputs(char *str,FILe *fp);<br>str为要写入的字符串，fp为文件指针。写入成功则返回非负数，否则返回EOF。</p>
+<p>【程序示例】向<code>d:\\demo.txt</code>文件中追加一个字符串</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">FILE *fp;</span><br><span class="line"><span class="keyword">char</span> str[<span class="number">102</span>]=&#123;<span class="number">0</span>&#125;,strTemp[<span class="number">100</span>];</span><br><span class="line"><span class="keyword">if</span>((fp=fopen(<span class="string">"D:\\demo.txt"</span>,<span class="string">"at+"</span>))==<span class="literal">NULL</span>)&#123;</span><br><span class="line">	<span class="built_in">puts</span>(<span class="string">"Fail to open file!"</span>);</span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"Input a string:"</span>);</span><br><span class="line">gets(strTemp);</span><br><span class="line"><span class="built_in">strcat</span>(str,<span class="string">"\n"</span>);</span><br><span class="line"><span class="built_in">strcat</span>(str,strTemp);</span><br><span class="line"><span class="built_in">fputs</span>(str,fp);</span><br><span class="line">fclose(fp);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="以数据块的形式读写文件"><a href="#以数据块的形式读写文件" class="headerlink" title="以数据块的形式读写文件"></a>以数据块的形式读写文件</h3><p>如果需要读取多行内容，需要使用fread()函数；相应地写入函数为fwrite()。<br>数据块:即若干个字节的数据，可以是一个字符、一个字符串或多行数据，并没有什么限制。<br>fread()原型:<br>    size_t fread(void <em>ptr,size_t size,size_t count,FILE *fp);<br>fwrite()原型:<br>    size_t fwrite(void *ptr,size_t size,size_t count,FILE *fp);<br>说明：<br>●ptr为内存区块的指针，它可以是数组、变量、结构体等。fread()中的ptr用来存放读取到的数据，而fwrite()中的ptr用来存放要写入的数据。<br>●size表示每个数据块的字节数<br>●count表示要读写的数据块的块数。<br>●fp表示文件指针<br>●理论上每次读写 size</em>count个字节的数据<br>●size_t是typedef定义的无符号整型数据类型，表示数量。<br>●返回值：返回成功读写的块数，也即count。<br><strong>若返回值小于count:</strong></p>
+<table>
+<thead>
+<tr>
+<th>fwrite()</th>
+<th>fread()</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>肯定发生了写入错误，可用ferror()函数检测</td>
+<td>可能读到了文件末尾，可能发生了错误，可用ferror()、feof()检测</td>
+</tr>
+</tbody></table>
+<p>rewind(fp):将文件中的指针重新定位到文件开头。</p>
+<p>【程序示例】从键盘输入两个学生数据，写入一个文件中，再次读出这两个学生数据到屏幕上。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 2</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">stu</span>&#123;</span></span><br><span class="line">	<span class="keyword">char</span> name[<span class="number">10</span>]; <span class="comment">//姓名</span></span><br><span class="line">	<span class="keyword">int</span> num; <span class="comment">//学号</span></span><br><span class="line">	<span class="keyword">int</span> age; <span class="comment">//年龄</span></span><br><span class="line">	<span class="keyword">float</span> score; <span class="comment">//成绩</span></span><br><span class="line">&#125;boya[N],boyb[N],*pa,*pb;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">FILE *fp;</span><br><span class="line"><span class="keyword">int</span> i;</span><br><span class="line">pa = boya;</span><br><span class="line">pb = boyb;</span><br><span class="line"><span class="keyword">if</span>((fp=fopen(<span class="string">"d:\\demo.txt"</span>,<span class="string">"wb+"</span>))==<span class="literal">NULL</span>)&#123;</span><br><span class="line"><span class="built_in">puts</span>(<span class="string">"Fail to open file!"</span>);</span><br><span class="line"><span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//从键盘输入数据</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"Input data:\n"</span>);</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++,pa++)&#123;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%s %d %d %f"</span>,pa-&gt;name,&amp;pa-&gt;num,&amp;pa-&gt;age,&amp;pa-&gt;score);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将数组数据写入文件</span></span><br><span class="line">fwrite(boya,<span class="keyword">sizeof</span>(struct stu),N,fp);</span><br><span class="line"><span class="comment">//将文件指针重置到文件开头</span></span><br><span class="line">rewind(fp);</span><br><span class="line"><span class="comment">//从文件读取数据并保存到数据boyb</span></span><br><span class="line">fread(boyb,<span class="keyword">sizeof</span>(struct stu),N,fp);</span><br><span class="line"><span class="comment">//输出数组boyb中的数据</span></span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++,pb++)&#123;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s %d %d %f\n"</span>,pb-&gt;name,pb-&gt;num,pb-&gt;age,pb-&gt;score);</span><br><span class="line">&#125;</span><br><span class="line">fclose(fp);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="格式化读写文件"><a href="#格式化读写文件" class="headerlink" title="格式化读写文件"></a>格式化读写文件</h3><p>以磁盘文件作为读写对象的格式化读写函数fscanf()和fprintf()。<br>一般形式:<br>    int  fscanf(FILE *fp,char *format,…);<br>    int  fprintf(FILE *fp,char *format,…);<br>fp为文件指针，format为格式控制字符串，…表示参数列表。<br>返回值：<br>fprintf()返回成功写入字符的个数，失败则返回负数。<br>fscanf()返回参数列表中被成功赋值的参数个数。</p>
+<h3 id="随机读写文件"><a href="#随机读写文件" class="headerlink" title="随机读写文件"></a>随机读写文件</h3><p>所谓随机读写指移动文件内部的位置指针后再进行读写。经常用于实际开发中读取文件的中间部分。<br>实现随机读写的关键是按要求移动位置指针，这称为文件的定位。<br>rewind()函数用于将位置指针移动到文件开头，原型为:<br>    void rewind(FILE *fp);<br>fseek()函数用于将位置指针移动到任意位置，它的原型为:<br>    int fseek(FILE *fp,long offset,int origin);<br>说明:<br>●fp为文件指针<br>●offset为偏移量，也就是要移动的字节数。offset为正，向后移动；为负，向前移动。<br>●origin为起始位置，也就是从何处开始计算偏移量。C语言的起始位置有以下三种，如下:</p>
+<table>
+<thead>
+<tr>
+<th>起始位置</th>
+<th>常量名</th>
+<th>常量值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文件开头</td>
+<td>SEEK_SET</td>
+<td>0</td>
+</tr>
+<tr>
+<td>当前位置</td>
+<td>SEEK_CUR</td>
+<td>1</td>
+</tr>
+<tr>
+<td>文件末尾</td>
+<td>SEEK_END</td>
+<td>2</td>
+</tr>
+</tbody></table>
+<p>●fseek一般用于二进制文件。</p>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><img src="/images/cc.png" alt></p>
+<p><a href="https://scholargeek.github.io/">Scholar’s Blog</a> by <a href="https://scholargeek.github.io/About/">scholargeek</a> is licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons BY-NC-ND 4.0 International License</a>.<br>由<a href="https://scholargeek.github.io/About/">董仕麟</a>创作并维护的<a href="https://scholargeek.github.io/">scholargeek</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。</p>
+<p>本文首发于<a href="https://scholargeek.github.io/">Scholar’s Blog</a>博客，版权所有，侵权必究。</p>
+<p>本文永久链接：<a href="https://scholargeek.github.io/2018/02/20/C语言学习10/">https://scholargeek.github.io/2018/02/20/C语言学习10/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+<div class="bdsharebuttonbox"><a href="#" class="_bds_more" data-cmd="more">分享本文</a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a><a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a><a href="#" class="bds_mail" data-cmd="mail" title="分享到邮件分享"></a><a href="#" class="bds_print" data-cmd="print" title="分享到打印"></a><a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a><a class="bds_count" data-cmd="count"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/06/01/数据结构学习/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          数据结构学习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/02/18/C语言学习9/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">C语言学习9</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">ABOUT ME</h3>
+  <div class="widget">
+    <div align="center">
+      <img src="/css/images/HeadPortrait.png" height="200" width="200" />
+      <p>Hi, I'm Dong Shilin.<br>I will share my learning experience and anecdotes with you on this blog.</p>
+    </div>
+  </div>
+</div>
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">音乐</h3>
+  <div class="widget">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=250 height=86 src="//music.163.com/outchain/player?type=2&id=1493370541&auto=1&height=66"></iframe>
+  </div>
+</div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorial/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Log/">日志</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">编程</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/12/28/考研志二/">考研日志二</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/28/考研志一/">考研日志一</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/01/Hexo博客部署过程的问题1/">Hexo博客部署过程的问题1</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/31/Hexo博客默认主题的修改与美化16/">Hexo博客默认主题的修改与美化16</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/30/Hexo博客默认主题的修改与美化15/">Hexo博客默认主题的修改与美化15</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DataStructure/">DataStructure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostgraduateEntranceExamination/">PostgraduateEntranceExamination</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 16.67px;">C</a> <a href="/tags/DataStructure/" style="font-size: 10px;">DataStructure</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/PostgraduateEntranceExamination/" style="font-size: 13.33px;">PostgraduateEntranceExamination</a>
+    </div>
+  </div>
+
+  
+    <div class="widget-wrap">
+
+  <h3 class="widget-title">calendar</h3>
+
+  <div class="widget" id="calendar">
+
+  </div>
+
+</div>
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">LINKS</h3>
+  <div class="widget">
+  <ul class="entry">
+  <li><a href="https://2511880290.qzone.qq.com" title="我的QQ空间">QQ空间</a>：Do what we want</li>
+  </ul>
+  </div>
+</div>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 董仕麟<br>
+      Powered by <a href="https://scholargeek.github.io/" target="_blank">DSL</a>
+    </div>
+  </div>
+  
+  <p align="center"
+  
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv" style='display:none'>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+        </span>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  </
+  
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/Log" class="mobile-nav-link">日志</a>
+  
+    <a href="/Learn" class="mobile-nav-link">学习</a>
+  
+    <a href="/About" class="mobile-nav-link">关于</a>
+  
+    <a href="/archives" class="mobile-nav-link">档案</a>
+  
+</nav>
+    
+
+<script src="http://apps.bdimg.com/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof jQuery == 'undefined') {
+  document.write(unescape("%3Cscript src='/js/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+// ]]>
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  <script src="/js/languages.js"></script>
+  <script src="/js/calendar.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    
+    $('#calendar').aCalendar('zh-CN', {root:'/', calendarSingle:true, calendarRoot:'calendar/'});
+    
+  });
+  </script>
+
+
+  </div>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!--动态线条背景-->
+<script type="text/javascript"
+color="255, 0, 0" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
